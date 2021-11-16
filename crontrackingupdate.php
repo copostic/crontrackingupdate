@@ -185,6 +185,7 @@ class crontrackingupdate extends Module
 						'label' => $this->l('Transporteurs Colissimo'),
 						'name' => 'CRONTRACKINGUPDATE_COLISSIMO_CARRIERS[]',
 						'multiple' => true,
+						'required' => true,
 						'hint' => $this->l('Tous les transporteurs dont le tracking sera mis à jour via l\'API Colissimo'),
 						'options' => [
 							'query' => Carrier::getCarriers((int) $this->context->language->id, true, false, false, null, Carrier::ALL_CARRIERS),
@@ -208,6 +209,7 @@ class crontrackingupdate extends Module
 						'label' => $this->l('Transporteurs DHL'),
 						'name' => 'CRONTRACKINGUPDATE_DHL_CARRIERS[]',
 						'multiple' => true,
+						'required' => true,
 						'hint' => $this->l('Tous les transporteurs dont le tracking sera mis à jour via l\'API DHL'),
 						'options' => [
 							'query' => Carrier::getCarriers((int) $this->context->language->id, true),
@@ -221,6 +223,7 @@ class crontrackingupdate extends Module
 						'label' => $this->l('Statuts de commandes'),
 						'name' => 'CRONTRACKINGUPDATE_ORDER_STATES[]',
 						'multiple' => true,
+						'required' => true,
 						'hint' => $this->l('Tous les status de commande concernés par la mise à jour du statut'),
 						'options' => [
 							'query' => OrderState::getOrderStates((int) $this->context->language->id),
@@ -234,6 +237,7 @@ class crontrackingupdate extends Module
 						'label' => $this->l('Statut de commande livrée'),
 						'name' => 'CRONTRACKINGUPDATE_DELIVERED_STATE_ID',
 						'multiple' => false,
+						'required' => true,
 						'hint' => $this->l('Le statut de commande indiquant que celle-ci est livrée'),
 						'options' => [
 							'query' => OrderState::getOrderStates((int) $this->context->language->id),
