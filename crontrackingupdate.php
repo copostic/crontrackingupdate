@@ -290,6 +290,12 @@ class crontrackingupdate extends Module
 	}
 
 	private function createFakeEmployee() {
+		if(Employee::customerExists("noreply@smptrading.com")) {
+			$employee = Employee::getByEmail("noreply@smptrading.com");
+			Configuration::updateValue('CRONTRACKINGUPDATE_EMPLOYEE_ID', $employee->id);
+			return;
+		}
+
 		$employee = new Employee();
 		$employee->firstname = "Utilisateur";
 		$employee->lastname = "Script mise à jour";
